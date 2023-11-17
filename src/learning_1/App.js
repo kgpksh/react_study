@@ -37,32 +37,62 @@ function ShowNum() {
   )
 }
 
-function ShowText() {
+function ShowText(props) {
   const [element, elementController] = useState(['aaa', 'bbb', 'ccc']);
 
   function arrayChanger() {
     let copy =[...element];
     copy[0] = 'ddddd';
-    elementController(copy);
-  }
-
+    elementController(copy[0]);
+    new Promise((res, rej) => {
+      setTimeout(() => {
+        res();
+        
+      }, 1500)
+    }).then(function() {
+      elementController(props.variable);
+    });
+  };
   return (
     <div>
       <h1 onClick={ arrayChanger }>
         문자 변경
       </h1>
       <h1>
-        { element[0] }
+        { element }
       </h1>
     </div>
   )
 }
+
+function Posts(props) {
+  let posts = [];
+  for(let post of props.posts) {
+    posts.push(<li>
+      <div>
+        {post[0]}
+      </div>
+      <div>
+        {post[1]}
+      </div>
+    </li>)
+  }
+  
+
+  return (
+    <ul>
+      {posts}
+    </ul>
+  )
+}
 function App() {
+  const posts = [['title1', 'content1'], ['title2', 'content2'], ['title3', 'content3']]
   return (
     <div>
       <Post></Post>
       <ShowNum></ShowNum>
-      <ShowText></ShowText>
+      <ShowText variable = '최종변경'></ShowText>
+      <Posts posts = {posts}></Posts>
     </div>
   );
 }
