@@ -1,19 +1,14 @@
 import DayList from './DayList'
 import Day from './Day'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
     return (
         <BrowserRouter>
             <div>
-                <Switch>
-                    <Route path='/'>
-                        <DayList></DayList>
-                    </Route>
-                    <Route>
-                        <Day></Day>
-                    </Route>
-                    
-                </Switch>
+                <Routes>
+                    <Route exact path='/' element={<DayList/>}/>
+                    <Route path='/day' element={<Day/>}/>
+                </Routes>
             </div>
         </BrowserRouter>
         
