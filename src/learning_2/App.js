@@ -1,7 +1,11 @@
-import { DayList } from './DayList'
+import DayList from './DayList'
+import Day from './Day'
 function App() {
     return (
-        <DayList></DayList>
+        <div>
+            <DayList></DayList>
+            <Day></Day>
+        </div>
     );
   }
   

@@ -1,6 +1,6 @@
 import dummyData from "../data.json";
 
-export function DayList() {
+export default function DayList() {
     return (
         <ul className="list_day">
             {dummyData.days.map(day => (
