@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.list_day {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list_day li {
+  flex: 20% 0 0;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

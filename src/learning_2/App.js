@@ -1,13 +1,7 @@
-import dummyData from '../data.json'
+import { DayList } from './DayList'
 function App() {
     return (
-      <ul>
-        {dummyData.words.map(word => (
-            <li>
-                Book : {word.kor}
-            </li>
-        ))}
-      </ul>
+        <DayList></DayList>
     );
   }
   
