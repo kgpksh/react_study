@@ -1,10 +1,11 @@
-import dummyData from "../data.json"
 import { useParams } from "react-router-dom"
 import Word from "./Word";
+import useFetch from "./hooks/useFetch";
 
 export default function Day() {
-    const day = useParams().day;
-    const wordList = dummyData.words.filter(word => word.day === Number(day));
+    const {day} = useParams();
+    const wordList =  useFetch(`http://localhost:3001/words?day=${day}`)
+    
     return(
         <table>
             <tbody>
