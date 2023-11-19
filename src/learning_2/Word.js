@@ -1,4 +1,5 @@
 import { useState } from "react"
+import useFetch from "./hooks/useFetch";
 
 export default function Word({ word }) {
     const [isShow, setIsShow] = useState(false);
@@ -9,6 +10,21 @@ export default function Word({ word }) {
     }
 
     function toggleDone() {
+        fetch(`http://localhost:3001/words/${word.id}`, {
+            method :'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+            },
+            body : JSON.stringify({
+                ...word,
+                isDone: !isDone
+            })
+        })
+        .then(res => {
+            if(res.ok) {
+                setisDone(!isDone)
+            }
+        })
         setisDone(!isDone)
     }
     return (
